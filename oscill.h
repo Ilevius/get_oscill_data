@@ -8,9 +8,9 @@
 using namespace std;
 
 
-class SignalDeviceOscilloscopeOWON6102A  {
+class OscilloscopeRigol_DS1054Z  {
 public:
-	~SignalDeviceOscilloscopeOWON6102A() = default;
+	~OscilloscopeRigol_DS1054Z() = default;
 	void connect();
 	void disconnect();
 	void setup();
@@ -22,6 +22,8 @@ private:
 	ViSession DEVICE;
 	ViSession RESOURCE_MANAGER;
 	int ask_and_print_answer(ViConstString inquiry);
+
+	bool connection;
 
 	enum class horScales_ns : uint64_t
 	{
