@@ -141,8 +141,6 @@ private:
 		}
 	}
 
-	//":" + SETTINGS.getOscill_settings().getDataCh() + ":OFFSet 1.2\n",
-	//":TRIG:SING:EDGE:LEV " + osc_sets.getTrigEdgeLevel() + "\n",
 
 	depMem CURR_DEPMEM = depMem::k100;
 	chanDivScale_mv CURR_VOLT_SCALE = chanDivScale_mv::v5;

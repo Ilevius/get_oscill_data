@@ -8,7 +8,7 @@
 using namespace std;
 // пойдет
 void OscilloscopeRigol_DS1054Z::connect() {
-	cout << "Инициировано подключение к OWON6102A" << endl; // OWON6102A connection has been started
+	cout << "Started OWON6102A connection" << endl; // OWON6102A connection has been started
 															// Адрес прибора
 	const char* resource = "USB0::0x5345::0x1235::2222099::INSTR";
 
@@ -29,7 +29,7 @@ void OscilloscopeRigol_DS1054Z::connect() {
 		//throw "Device not found!\n";
 	}
 	else {
-		printf(" Осцилограф успешно подключен\n"); //Oscilloscope has been connected
+		printf("OWON6102A connected succesfully\n"); //Oscilloscope has been connected
 		OscilloscopeRigol_DS1054Z::connection = true;
 
 	}
@@ -45,10 +45,10 @@ void OscilloscopeRigol_DS1054Z::disconnect() {
 }
 
 void OscilloscopeRigol_DS1054Z::setup() {
-	cout << "Запущена настрокйка OWON6102A" << endl; // OWON6102A setup has been started
+	cout << "Started setup OWON6102A" << endl; // OWON6102A setup has been started
 
 
-	CURR_DEPMEM = find_depMem(int64_t("100k"));
+	CURR_DEPMEM = find_depMem(int64_t(100000));
 	CURR_VOLT_SCALE = find_chanScale(int64_t(10));
 	CURR_HORSCALE = find_horScale(int64_t(200));
 
@@ -73,7 +73,7 @@ void OscilloscopeRigol_DS1054Z::setup() {
 	}
 
 	//											Передача стартовых команд
-	cout << "Запрос" << "                                 " << '|' << "  " << "Ответ\n";
+	cout << "Inquire" << "                                 " << '|' << "  " << "Answer\n";
 	cout << "-----------------------------------------------------\n";
 	ask_and_print_answer(":HORIzontal:SCALe?\n");
 	ask_and_print_answer(":ACQuire:PRECision?\n");
